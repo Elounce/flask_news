@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Category
+{% endblock title %}
+
+{% block content %}
+<h1>Add Category</h1>
+<hr>
+<form action="" method="POST" novalidate>
+    {{ form.csrf_token }}
+    <div class="form-group">
+        <label>
+            {{ form.title.label }}
+        </label>
+        {{ form.title(class="form-control") }}
+    </div>
+    {% for error in form.title.errors %}
+        <div class="alert alert-danger" role="alert">
+            <span>{{ error }}</span>
+        </div>
+    {% endfor %}
+    {{ form.submit(class="btn btn-primary btn-lg") }}
+</form>
+{% endblock content %}
